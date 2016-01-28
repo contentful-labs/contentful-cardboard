@@ -93,7 +93,7 @@ public class MainActivity
 
     long currentNanos = System.nanoTime();
     if (lastRendered == 0) {
-      lastRendered = System.nanoTime();
+      lastRendered = currentNanos;
     }
 
     actors.act(currentNanos - lastRendered);
