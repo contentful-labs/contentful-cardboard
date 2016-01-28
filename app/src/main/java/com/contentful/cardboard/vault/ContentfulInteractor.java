@@ -48,18 +48,14 @@ public class ContentfulInteractor implements Interactor {
 
     Vault.observeSyncResults()
         .subscribeOn(Schedulers.io())
-        .observeOn(Schedulers.io())
         .flatMap(new Func1<SyncResult, Observable<Product>>() {
           @Override public Observable<Product> call(SyncResult syncResult) {
             return vault.observe(Product.class).order(Product$Fields.NAME).all();
           }
         })
-        .subscribeOn(Schedulers.io())
-        .observeOn(Schedulers.io())
         .flatMap(new CreateProtoModelAndRenderSign(applicationContext))
         .flatMap(new DownloadMeshAsset(applicationContext))
         .flatMap(new DownloadTextureAsset(applicationContext))
-        .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new EnqueueProtoModel());
   }
