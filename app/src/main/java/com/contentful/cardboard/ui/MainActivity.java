@@ -17,11 +17,12 @@ import com.contentful.cardboard.vr.actor.ParallelActor;
 import com.contentful.cardboard.vr.actor.RotateByActor;
 import com.contentful.cardboard.vr.model.Model;
 import com.contentful.cardboard.vr.model.ProtoModel;
-import com.google.vrtoolkit.cardboard.CardboardActivity;
-import com.google.vrtoolkit.cardboard.CardboardView;
-import com.google.vrtoolkit.cardboard.Eye;
-import com.google.vrtoolkit.cardboard.HeadTransform;
-import com.google.vrtoolkit.cardboard.Viewport;
+import com.google.vr.sdk.base.AndroidCompat;
+import com.google.vr.sdk.base.Eye;
+import com.google.vr.sdk.base.GvrActivity;
+import com.google.vr.sdk.base.GvrView;
+import com.google.vr.sdk.base.HeadTransform;
+import com.google.vr.sdk.base.Viewport;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -29,8 +30,8 @@ import java.util.concurrent.TimeUnit;
 import javax.microedition.khronos.egl.EGLConfig;
 
 public class MainActivity
-    extends CardboardActivity
-    implements CardboardView.StereoRenderer, View {
+    extends GvrActivity
+    implements GvrView.StereoRenderer, View {
 
   private static final String TAG = "MainActivity";
   private static final String LOG_TAG = MainActivity.class.getCanonicalName();
@@ -42,8 +43,8 @@ public class MainActivity
 
   private Vibrator vibrator;
   private Renderer renderer;
-
   private Presenter presenter;
+
   private long lastRendered;
 
   @Override
@@ -52,10 +53,12 @@ public class MainActivity
 
     setContentView(R.layout.common_ui);
 
-    CardboardView cardboardView = (CardboardView) findViewById(R.id.cardboard_view);
-    cardboardView.setRestoreGLStateEnabled(false);
-    cardboardView.setRenderer(this);
-    setCardboardView(cardboardView);
+    GvrView gvrView = (GvrView) findViewById(R.id.gvr_view);
+    gvrView.setRenderer(this);
+    gvrView.enableCardboardTriggerEmulation();
+    setGvrView(gvrView);
+
+    AndroidCompat.setVrModeEnabled(this, true);
 
     vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 

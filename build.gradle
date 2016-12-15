@@ -1,11 +1,21 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+allprojects {
+    repositories {
+        maven {
+            url "http://google.bintray.com/googlevr"
+        }
+        jcenter()
+        mavenCentral()
+    }
+}
+
 buildscript {
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }

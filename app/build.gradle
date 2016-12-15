@@ -17,14 +17,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 23
-        versionCode 2
-        versionName "1.0.1"
+        targetSdkVersion 25
+        versionCode 3
+        versionName "1.1.0"
     }
 }
 
@@ -32,10 +32,14 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
-    apt 'com.contentful.vault:compiler:0.9.14'
-    compile('com.contentful.vault:core:0.9.14') {
+    apt 'com.contentful.vault:compiler:2.1.0'
+    compile('com.contentful.vault:core:2.1.0') {
         exclude module: 'commons-io'
     }
-    compile 'com.contentful.java:java-sdk:6.1.0'
+    compile 'com.contentful.java:java-sdk:7.2.0'
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    compile 'com.google.vr:sdk-base:1.10.0'
+    compile 'com.google.vr:sdk-common:1.10.0'
+    compile 'com.google.vr:sdk-controller:1.10.0'
 }

@@ -31,7 +31,7 @@ public class CreateProtoModelAndRenderSign implements Func1<Product, Observable<
     result.meshUrl = product.previewMeshFile().url();
     result.textureUrl = product.textures().get(0).url();
 
-    result.position = new float[]{0.0f, 0.0f, -3.0f, 1.0f};
+    result.position = new float[]{0.0f, 0.0f, -5.0f, 1.0f};
     result.scale = new float[]{1.0f, 1.0f, 1.0f, 1.0f};
     result.rotation = new float[]{0.0f, 0.0f, 0.0f, 1.0f};
 
