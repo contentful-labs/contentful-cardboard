@@ -17,4 +17,4 @@ Screencast
 
 A quick screencast can be seen here:
 
-![Screenshots](screenshots/sc1.png) ![Screenshots](asset/bunny.gif)
+![Screenshots](asset/bunny.gif)
