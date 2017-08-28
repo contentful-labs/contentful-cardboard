@@ -9,5 +9,12 @@ Introduction
 ============
 
 This demo repository will be used to demonstrate on how to use `Google's Cardboard` with [contentful](www.contentful.com)
-There is a `Contentful` space prepared, which serves products in `.obj` and some additional fields, like a `name`, a `price`,
+There is a `Contentful` space prepared, which serves products in `.obj` and some additional fields, like a `name, a `price`,
 a `description` and so forth.
+
+Screencast
+==========
+
+A quick screencast can be seen here:
+
+![Screenshots](screenshots/sc1.png) ![Screenshots](asset/bunny.gif)
